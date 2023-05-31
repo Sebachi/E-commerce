@@ -1,0 +1,6 @@
+verduras: https://themes.pixelstrap.com/fastkart/assets/images/vegetable/banner/1.jpg
+Manis: 	https://themes.pixelstrap.com/fastkart/assets/images/vegetable/banner/2.jpg
+Pasta: https://themes.pixelstrap.com/fastkart/assets/images/vegetable/banner/3.jpg
+Huevos: https://themes.pixelstrap.com/fastkart/assets/images/vegetable/banner/4.jpg
+Frutas: https://themes.pixelstrap.com/fastkart/assets/images/vegetable/banner/5.jpg
+Carne: https://themes.pixelstrap.com/fastkart/assets/images/vegetable/banner/6.jpg
