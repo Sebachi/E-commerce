@@ -151,6 +151,10 @@ const descuento = () => {
 `
 };
 
+let user = JSON.parse(localStorage.getItem("user"));
+let userWishlist = JSON.parse(localStorage.getItem("userWishlist"));
+const idWishIcon = 
+
 document.addEventListener("DOMContentLoaded", async () => {
   await getProducts();
   descuento();
@@ -161,6 +165,18 @@ document.addEventListener("DOMContentLoaded", async () => {
   const btnMinus = document.getElementById(`minus${localProduct}`)
   const counter = document.getElementById(`counter${localProduct}`)
   const favIcon = document.getElementById(`wishIcon${localProduct}`);
+  //  const colorIcon = (e) => {
+  //   e.forEach((element) => {
+  // newArray.forEach((newArrayelement) => {
+  //      if (newArrayelement == element.itemId) {
+  //         `wishIcon${element.itemId}`
+  //         ;
+  //       }
+  //     });
+  //   });
+  //  }
+
+
   btnPlus.addEventListener('click', () => {
     let currentValue = Number(counter.innerText);
     counter.innerText = currentValue + 1
@@ -175,7 +191,17 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
   });
   favIcon.addEventListener('click', () => {
-    favIcon.classList.toggle('activated');
+    if(!favIcon.classList.contains('activated')){
+      console.log('Hola soy yo');
+      favIcon.classList.add('activated');
+      userWishlist.push(localProduct)
+      localStorage.setItem('userWishlist', JSON.stringify(userWishlist))}
+   else {
+    favIcon.classList.remove('activated');
+    console.log('soy el else');
+     userWishlist = userWishlist.filter(item => item !== localProduct);
+    localStorage.setItem('userWishlist', JSON.stringify(userWishlist))
+   }
   });
 });
 });
