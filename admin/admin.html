@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>E-commerce</title>
-  <link rel="stylesheet" href="StylesWishlist.css">
+  <link rel="stylesheet" href="admin.css">
 </head>
 
 
@@ -86,17 +86,53 @@
   </header>
 
   <main>
-    <section class="topWishlist">
-      <aside><h3>Wishlist</h3></aside>
+    <section class="topAdmin">
+      <aside><h3>AdminPage</h3></aside>
       <aside><a href="/Index.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg> <span> > Wishlist </span></a></aside>
     </section>
-    <section class="wishlistContainer" id="wishlistContainer">
+    <section class="adminContainer" id="adminContainer">
+
+      <button class="nav__item">Nuevo producto</button>
+
+      <form id="formNewProduct" class="formNewProduct hidden">
+        <h2 class="subtitle">Ingresar nuevo producto</h2>
+        <div class="form__group">
+            <label for="name" class="form__label">Nombre del producto</label>
+            <input type="text" id="name" class="form__input" placeholder="Introduzca el nombre">
+        </div>
+
+        <div class="form__group">
+            <label for="price" class="form__label">Precio del producto</label>
+            <input type="number" id="price" class="form__input" placeholder="Introduzca el precio">
+        </div>
+
+        <div class="form__group">
+            <label for="amount" class="form__label">Cantidad actual</label>
+            <input type="number" id="amount" class="form__input" placeholder="Introduzca la cantidad">
+        </div>
+
+        <div class="form__group weight">
+          <label for="weight" class="form__label">Peso del producto</label>
+          <input type="text" id="weight" class="form__input" placeholder="Introduzca el peso del producto">
+        </div>
+        <div class="form__group type">
+          <label for="type" class="form__label">Categoria del producto</label>
+          <input type="text" id="type" class="form__input" placeholder="Introduzca la categoria del producto">
+        </div>
+        <div class="form__group imageR">
+          <label for="image" class="form__label">Introduzca el URL de la imagen del producto sin fondo</label>
+          <input type="text" id="image" class="form__input" placeholder="Introduzca la URL de la imagen">
+        </div>
+        <button class="form__btn">
+            Save
+        </button>
+    </form>
+    <div class="mainDivider"></div>
+
+    <section id="allProductsContainer">
 
 
-
-
-
-
+    </section>
     </section>
   </main>
 
@@ -182,8 +218,7 @@
     </section>
 
   </footer>
-<script src="./wishlist.js"></script>
-<script src="./responsive.js"></script>
+<script src="admin.js"></script>
 </body>
 
 </html>
