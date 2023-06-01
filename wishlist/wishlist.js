@@ -30,6 +30,7 @@ const getWishlist = async () => {
             </div>
           </div>
             `;
+            
         }
       });
     });
