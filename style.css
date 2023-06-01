@@ -340,10 +340,11 @@ footer li a {
   margin: 0;
 }
 .FtArt5 hr {
-  width: 150px;
+  min-width: 200px;
   margin-left: 0;
   border-color: var(--color-gray-50);
   padding: 10px 0 0 0;
+  width: 100%;
 }
 .contactUs {
   margin-top: 0;
@@ -531,7 +532,7 @@ main {
 }
 .productContainer img {
   height: 100%;
-  width: 90%;
+  width: 100%;
   object-fit: contain;
   background-color: var(--background-gray);
 }
@@ -606,21 +607,40 @@ main {
   }
   .FtArt1 {
     line-height: 30px;
+
+    display: flex;
+    flex-direction: column;
   }
   .FtArt1 figure {
     justify-self: center;
     position: relative;
-    left: 7vh;
+    align-self: center;
   }
   .FtArt5 {
     justify-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
   .contactUs {
-    position: relative;
-    left: 7vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .contactus2{
+    min-width: 200px;
+    display: flex;
+    justify-content: center;
+  }
+  #downloadapp{
+    display: flex;
+    width: auto;
+    justify-content: center;
   }
   .stores {
     flex-wrap: wrap;
+    justify-content: center;
   }
   /* secondFooter */
   .secondFooter {
@@ -668,11 +688,65 @@ main {
     grid-template-columns: none;
     height: 100vw;
   }
+  /* Card containers */
+  .midPage {
+    flex-wrap: wrap;
+  }
+  .categories {
+    width: 100%;
+    height: 350px;
+  }
+  .categories li {
+   justify-content: center;
+  }
+  .productContainer {
+    width: 100%;
+  }
+  .productContainer img {
+    height: 100%;
+    width: auto;
+  }
+  .productInfo{
+    gap: 10px;
+  }
+
+  .CardProductsList {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: minmax(200px, auto);
+  }
+ .TopSaveToday{
+    width: 100%;
+ }
+ .productType{
+    display: none;
+ }
   .hidden {
     display: none;
   }
 }
 
+@media (max-width: 800px) {
+    .productName, .productPrice {
+        font-size: 12px;
+      }
+      .productType, .productWeight{
+        display: none;
+      }
+      .productContainer img {
+        height: 100%;
+        width: auto;
+      }
+      .CardProductsList {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .productContainer {
+        width: 100%;
+      }
+}
 /*siempre al final */
 .hidden {
   display: none;
