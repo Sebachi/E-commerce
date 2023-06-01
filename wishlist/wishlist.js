@@ -1,5 +1,5 @@
 //
-const URL_LOCAL = "http://localhost:4000/stockFItems";
+const URL_LOCAL = "https://ecommercefinalmodulo1back.onrender.com/stockFItems";
 const wishlistContainer = document.getElementById("wishlistContainer");
 const getWishlist = async () => {
   try {

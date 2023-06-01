@@ -22,7 +22,7 @@ const category5 = document.getElementById("categories__5");
 const category6 = document.getElementById("categories__6");
 const category7 = document.getElementById("categories__7");
 const topSaveToday = document.getElementById("TopSaveToday");
-const URL_LOCAL = "http://localhost:4000/stockFItems";
+const URL_LOCAL = "https://ecommercefinalmodulo1back.onrender.com/stockFItems";
 const CardProductsList = document.getElementsByClassName("CardProductsList");
 let mainContainer; //se utilizara para posicionar
 const headerProductslist = document.getElementsByClassName("headerProductslist")
