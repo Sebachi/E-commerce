@@ -1,14 +1,14 @@
 // Reponsive Section
-const hamburguesa = document.querySelector('.hamburguesa');
-const burgerIco = document.getElementById('burgerIco');
-const menuMobile = document.querySelector('.ulMobile');
+const hamburguesa = document.querySelector(".hamburguesa");
+const burgerIco = document.getElementById("burgerIco");
+const menuMobile = document.querySelector(".ulMobile");
 let isOpen = false;
-hamburguesa.addEventListener('click', (e) => {
-  menuMobile.classList.toggle('inactive');
+hamburguesa.addEventListener("click", (e) => {
+  menuMobile.classList.toggle("inactive");
   if (isOpen) {
-    burgerIco.src = 'resources/icon-hamburger.svg';
+    burgerIco.src = "resources/icon-hamburger.svg";
   } else {
-    burgerIco.src = 'resources/icon-close.svg';
+    burgerIco.src = "resources/icon-close.svg";
   }
   isOpen = !isOpen;
 });
@@ -25,32 +25,32 @@ const topSaveToday = document.getElementById("TopSaveToday");
 const URL_LOCAL = "https://ecommercefinalmodulo1back.onrender.com/stockFItems";
 const CardProductsList = document.getElementsByClassName("CardProductsList");
 let mainContainer; //se utilizara para posicionar
-const headerProductslist = document.getElementsByClassName("headerProductslist")
+const headerProductslist =
+  document.getElementsByClassName("headerProductslist");
 
 const getProducts = async () => {
   try {
     const response = await fetch(URL_LOCAL);
     const data = await response.json();
-    data.forEach(element => {
-      if (element.itemType == 'Vegetables' || element.itemType == "Fruits") {
-        mainContainer = CardProductsList[0]
-      }
-      else if (element.itemType == "Beverages") {
+    data.forEach((element) => {
+      if (element.itemType == "Vegetables" || element.itemType == "Fruits") {
+        mainContainer = CardProductsList[0];
+      } else if (element.itemType == "Beverages") {
         mainContainer = CardProductsList[1];
-      }
-      else if (element.itemType == "Meats" || element.itemType == "Fish") {
+      } else if (element.itemType == "Meats" || element.itemType == "Fish") {
         mainContainer = CardProductsList[2];
-      }
-      else if (element.itemType == "Frozen Foods") {
+      } else if (element.itemType == "Frozen Foods") {
         mainContainer = CardProductsList[3];
-      }
-      else if (element.itemType == "Biscuits" || element.itemType == "Snacks") {
+      } else if (
+        element.itemType == "Biscuits" ||
+        element.itemType == "Snacks"
+      ) {
         mainContainer = CardProductsList[4];
-      }
-      else if (element.itemType == "Staples") {
+      } else if (element.itemType == "Staples") {
         mainContainer = CardProductsList[5];
+      } else {
+        mainContainer = CardProductsList[6];
       }
-      else { mainContainer = CardProductsList[6]; }
 
       mainContainer.innerHTML += `
     <div id="${element.itemId}" class="productContainer">
@@ -66,60 +66,62 @@ const getProducts = async () => {
         <p class="productPrice"> <span>$</span> ${element.itemPrice}</p>
       </div>
       <div class="qty_Modifier">
-        <button class="operation plus" id="plus${element.itemId}"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path opacity="0.15" d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" fill="#000000"></path> <path d="M12 7V17M7 12H17M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg></button>
-        <span class="counter" id="counter${element.itemId}">0</span>
-        <button class="operation minus" id="minus${element.itemId}"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path opacity="0.15" d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" fill="#000000"></path> <path d="M8 12H16M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg></button>
+      <button class="operation minus" id="minus${element.itemId}"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path opacity="0.15" d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" fill="#000000"></path> <path d="M8 12H16M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg></button>
+      <span class="counter" id="counter${element.itemId}">0</span>
+      <button class="operation plus" id="plus${element.itemId}"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path opacity="0.15" d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" fill="#000000"></path> <path d="M12 7V17M7 12H17M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg></button>
+
+
       </div>
     </div>
-      `
-    })
-    return response
+      `;
+    });
+    return response;
   } catch (error) {
     console.log(error);
     return error;
   }
-}
+};
 
 //mostrar primera categoria
-category1.addEventListener('click', (e) => {
+category1.addEventListener("click", (e) => {
   e.preventDefault();
   handleToggleArticle();
   CardProductsList[0].classList.remove("hidden");
 });
-category2.addEventListener('click', (e) => {
+category2.addEventListener("click", (e) => {
   e.preventDefault();
   handleToggleArticle();
   CardProductsList[1].classList.remove("hidden");
 });
-category3.addEventListener('click', (e) => {
+category3.addEventListener("click", (e) => {
   e.preventDefault();
   handleToggleArticle();
 
   CardProductsList[2].classList.remove("hidden");
   console.log("me undiste 3");
 });
-category4.addEventListener('click', (e) => {
+category4.addEventListener("click", (e) => {
   e.preventDefault();
   handleToggleArticle();
 
   CardProductsList[3].classList.remove("hidden");
   console.log("me undiste 4");
 });
-category5.addEventListener('click', (e) => {
+category5.addEventListener("click", (e) => {
   e.preventDefault();
   handleToggleArticle();
 
   CardProductsList[4].classList.remove("hidden");
   console.log("me undiste 5");
 });
-category6.addEventListener('click', (e) => {
+category6.addEventListener("click", (e) => {
   e.preventDefault();
   handleToggleArticle();
 
   CardProductsList[5].classList.remove("hidden");
   console.log("me undiste 6");
 });
-category7.addEventListener('click', (e) => {
+category7.addEventListener("click", (e) => {
   e.preventDefault();
   handleToggleArticle();
 
@@ -132,14 +134,13 @@ category7.addEventListener('click', (e) => {
 //ocultar todas las categorias
 
 const handleToggleArticle = () => {
-  headerProductslist[0].classList.add('hidden');
+  headerProductslist[0].classList.add("hidden");
   for (let i = 0; i < CardProductsList.length; i++) {
-    CardProductsList[i].classList.add('hidden');
+    CardProductsList[i].classList.add("hidden");
   }
-}
+};
 
 //crea la lista de articulos en la main page
-
 
 //crear la lista de descuentos
 const descuento = () => {
@@ -148,75 +149,52 @@ const descuento = () => {
           <img src="" alt="HrPlant">
           <p>Dont miss this opportunity at a special discount just for this week.</p>
           <button><img src="" alt="reloj"> Expires in: 349:3:45:37 </button>
-`
+`;
 };
 
 let user = JSON.parse(localStorage.getItem("user"));
 let userWishlist = JSON.parse(localStorage.getItem("userWishlist"));
-const idWishIcon = 
-
-document.addEventListener("DOMContentLoaded", async () => {
+const idWishIcon = document.addEventListener("DOMContentLoaded", async () => {
   await getProducts();
   descuento();
-  const productContainer = document.querySelectorAll('.productContainer')
-  productContainer.forEach(element => {
-  const localProduct = element.getAttribute('id')
-  const btnPlus = document.getElementById(`plus${localProduct}`)
-  const btnMinus = document.getElementById(`minus${localProduct}`)
-  const counter = document.getElementById(`counter${localProduct}`)
-  const favIcon = document.getElementById(`wishIcon${localProduct}`);
-  //  const colorIcon = (e) => {
-  //   e.forEach((element) => {
-  // newArray.forEach((newArrayelement) => {
-  //      if (newArrayelement == element.itemId) {
-  //         `wishIcon${element.itemId}`
-  //         ;
-  //       }
-  //     });
-  //   });
-  //  }
-
-
-  btnPlus.addEventListener('click', () => {
-    let currentValue = Number(counter.innerText);
-    counter.innerText = currentValue + 1
-  });
-  btnMinus.addEventListener('click', () => {
-    let currentValue = Number(counter.innerText);
-    if (currentValue > 0){
-      counter.innerText = currentValue - 1
-    }
-    else {
-      counter.innerText = 0
-    }
-  });
-  favIcon.addEventListener('click', () => {
-    if(!favIcon.classList.contains('activated')){
-      console.log('Hola soy yo');
-      favIcon.classList.add('activated');
-      userWishlist.push(localProduct)
-      localStorage.setItem('userWishlist', JSON.stringify(userWishlist))}
-   else {
-    favIcon.classList.remove('activated');
-    console.log('soy el else');
-     userWishlist = userWishlist.filter(item => item !== localProduct);
-    localStorage.setItem('userWishlist', JSON.stringify(userWishlist))
-   }
+  const productContainer = document.querySelectorAll(".productContainer");
+  productContainer.forEach((element) => {
+    const localProduct = element.getAttribute("id");
+    const btnPlus = document.getElementById(`plus${localProduct}`);
+    const btnMinus = document.getElementById(`minus${localProduct}`);
+    const counter = document.getElementById(`counter${localProduct}`);
+    const favIcon = document.getElementById(`wishIcon${localProduct}`);
+    const heartActivated = JSON.parse(localStorage.getItem("userWishlist"));
+    heartActivated.forEach((heart) => {
+      if (heart == localProduct) {
+        favIcon.classList.add("activated");
+    }})
+    btnPlus.addEventListener("click", () => {
+      let currentValue = Number(counter.innerText);
+      counter.innerText = currentValue + 1;
+    });
+    btnMinus.addEventListener("click", () => {
+      let currentValue = Number(counter.innerText);
+      if (currentValue > 0) {
+        counter.innerText = currentValue - 1;
+      } else {
+        counter.innerText = 0;
+      }
+    });
+    favIcon.addEventListener("click", () => {
+      if (!favIcon.classList.contains("activated")) {
+        console.log("Hola soy yo");
+        favIcon.classList.add("activated");
+        userWishlist.push(localProduct);
+        localStorage.setItem("userWishlist", JSON.stringify(userWishlist));
+      } else {
+        favIcon.classList.remove("activated");
+        console.log("soy el else");
+        userWishlist = userWishlist.filter((item) => item !== localProduct);
+        localStorage.setItem("userWishlist", JSON.stringify(userWishlist));
+      }
+    });
   });
 });
-});
 
-
-
-
-window.saveCardElements = () => {
-
-}
-// const btnPlus = document.getElementById('plus1')
-// const btnMinus = document.getElementById('minus1')
-// const counter = document.getElementById('counter1')
-// console.log(btnPlus);
-// btnPlus.addEventListener('click', () => {
-//   let currentValue = Number(counter.innerText);
-//   counter.innerText = currentValue + 1
-// })
+window.saveCardElements = () => {};

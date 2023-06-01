@@ -397,6 +397,7 @@ main{
   /*estilos internos */
   .productContainer {
     width: 33%;
+    min-width: 250px;
     height: 250px;
     display: flex;
     flex-direction: column;

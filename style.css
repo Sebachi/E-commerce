@@ -455,6 +455,7 @@ main {
 .categories {
   background-color: var(--background-footer);
   width: 250px;
+  min-width: 250px;
   height: 450px;
   padding: 0 20px;
   border-radius: 10px;
@@ -728,6 +729,9 @@ main {
 }
 
 @media (max-width: 800px) {
+    .productContainer{
+      min-width: 250px;
+    }
     .productName, .productPrice {
         font-size: 12px;
       }
