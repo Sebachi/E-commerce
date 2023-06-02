@@ -16,6 +16,7 @@ hamburguesa.addEventListener('click', (e) => {
 // Codigo
 const CartContainer = document.getElementById('CartContainer')
 const URL_LOCAL = "https://ecommercefinalmodulo1back.onrender.com/stockFItems";
+const URL_BUYED = "https://ecommercefinalmodulo1back.onrender.com/BuyedItems";
 // const cartTotal = document.getElementById('cartTotal')
 const subtotal = document.getElementById('subtotal')
 const total = document.getElementById('total')
@@ -66,13 +67,29 @@ const getCart = async () => {
       return error;
     }
   };
-
-
+// Funcion post
+  const saveProduct = async (product) => {
+    try {
+        const response = await fetch(URL_BUYED, {
+            method: 'POST',
+            body: JSON.stringify(product),
+            headers: {
+                "Content-type": "application/json"
+            }
+        })
+        return response
+    } catch(error) {
+        console.log(error)
+        return error
+    }
+}
+// Document loaded
 document.addEventListener("DOMContentLoaded", async () => {
     await getCart();
 
     const productContainer = document.querySelectorAll(".productContainer");
     let counterTotal =  0
+    let productsBuyed = []
     productContainer.forEach((element) => {
       const localProduct = element.getAttribute("id");
       const btnPlus = document.getElementById(`plus${localProduct}`);
@@ -116,7 +133,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       const formBuyer = document.getElementById('formBuyer')
       const cancelBuy = document.getElementById('cancelBuy')
       const buyNow = document.getElementById('buyNow')
-      const URL_BUYED = "https://ecommercefinalmodulo1back.onrender.com/BuyedItems"
+
       const subtotal = document.getElementById('subtotal')
       const total = document.getElementById('total')
       checkout.addEventListener('click', () => {
@@ -137,6 +154,23 @@ document.addEventListener("DOMContentLoaded", async () => {
             behavior: 'smooth'
           });
       })
+      const itemAmount = JSON.parse(localStorage.getItem(`usercart${localProduct}`));
+
+      buyNow.addEventListener('click', () => {
+        
+        productsBuyed = [
+            {
+            id : localProduct,
+            itemAmount : itemAmount,
+        }
+        ]
+        saveProduct(productsBuyed)
+        alert('Producto comprado exitosamente')
+      })
+
+
+
+
 
       window.scrollTo({
         top: 0,
@@ -144,9 +178,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       });
      const currentTotal = document.getElementById(`total${localProduct}`)
      const totalCurrentNumber =  Number(currentTotal.innerText)
-     
      counterTotal += totalCurrentNumber
-     console.log(counterTotal);
     });
     const applyBtn = document.getElementById('applyBtn')
     applyBtn.addEventListener('click', () => {
