@@ -397,7 +397,6 @@ main {
 }
 .subtitle {
   margin-bottom: 1rem;
-  border: 2px red solid;
 }
 .form__group {
   display: flex;
@@ -539,7 +538,21 @@ main {
   text-align: center;
   background-color: transparent;
 }
-
+.nav__item{
+    width: 46%;
+    color: var(--theme-color);
+    background-color:var(--background-footer);
+    height: 40px;
+    padding: 10px;
+    font-weight: bolder;
+    border-radius: 5px;
+    margin-left: 10px;
+    border: 1px solid var(--color-gray-50);
+}
+.nav__item:hover{
+  background-color: #ff7675;
+  color: #fff;
+}
 @media (max-width: 1440px) {
   /* header */
   .textTopbar,

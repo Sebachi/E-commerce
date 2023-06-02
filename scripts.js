@@ -25,8 +25,7 @@ const topSaveToday = document.getElementById("TopSaveToday");
 const URL_LOCAL = "https://ecommercefinalmodulo1back.onrender.com/stockFItems";
 const CardProductsList = document.getElementsByClassName("CardProductsList");
 let mainContainer; //se utilizara para posicionar
-const headerProductslist =
-  document.getElementsByClassName("headerProductslist");
+const headerProductslist = document.getElementsByClassName("headerProductslist");
 
 const getProducts = async () => {
   try {
@@ -48,8 +47,10 @@ const getProducts = async () => {
         mainContainer = CardProductsList[4];
       } else if (element.itemType == "Staples") {
         mainContainer = CardProductsList[5];
-      } else {
+      } else if (element.itemType == 'Alcohol Drinks'){
         mainContainer = CardProductsList[6];
+      } else {
+        mainContainer = headerProductslist[0]
       }
 
       mainContainer.innerHTML += `
@@ -167,7 +168,7 @@ if (userWishlist == null) {
 
 const idWishIcon = document.addEventListener("DOMContentLoaded", async () => {
   await getProducts();
-  descuento();
+  // descuento();
   const productContainer = document.querySelectorAll(".productContainer");
   productContainer.forEach((element) => {
     const localProduct = element.getAttribute("id");

@@ -480,8 +480,14 @@ main {
 /* Cards */
 
 .headerProductslist {
-  border: red solid 2px;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 10px;
+  gap: 2px;
 }
+
 .CardProductsList {
   width: 100%;
   height: auto;
@@ -703,6 +709,9 @@ main {
   .productContainer {
     width: 100%;
   }
+  .headerProductslist .productContainer{
+    width: 100%;
+  }
   .productContainer img {
     height: 100%;
     width: auto;
@@ -729,9 +738,7 @@ main {
 }
 
 @media (max-width: 800px) {
-    .productContainer{
-      min-width: 250px;
-    }
+  
     .productName, .productPrice {
         font-size: 12px;
       }
@@ -749,6 +756,11 @@ main {
       }
       .productContainer {
         width: 100%;
+        min-width: 250px;
+      }
+      .headerProductslist .productContainer{
+        width: 100%;
+        min-width: 250px;
       }
 }
 /*siempre al final */

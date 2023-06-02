@@ -17,7 +17,7 @@ hamburguesa.addEventListener("click", (e) => {
 
 const btnNewProduct = document.querySelector(".nav__item");
 const formNewProduct = document.getElementById("formNewProduct");
-const URL_API = "http://localhost:4000/stockFItems";
+const URL_API = "https://ecommercefinalmodulo1back.onrender.com/stockFItems";
 const allProductsContainer = document.getElementById("allProductsContainer");
 const inputName = document.querySelector("#name");
 const inputPrice = document.querySelector("#price");
@@ -33,7 +33,7 @@ let isEdit = false;
 let idProductEdit;
 
 const handleToggleForm = () => {
-  formNewProduct.classList.remove("hidden");
+  formNewProduct.classList.toggle("hidden");
   titleForm.innerHTML = "Nuevo producto";
   btnForm.innerHTML = "Save";
   formNewProduct.reset();
