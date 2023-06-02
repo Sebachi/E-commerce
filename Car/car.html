@@ -87,8 +87,8 @@
       <aside><h3>Cart</h3></aside>
       <aside><a href="/Index.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg> <span> > Cart</span></a></aside>
     </section>
-    <section class="CartContainer">
-      <article class="product_buy_detail">
+    <section id="CartContainer">
+      <!-- <article class="product_buy_detail">
         <div><figure class="productFigure"><img src="https://themes.pixelstrap.com/fastkart/assets/images/vegetable/product/3.png" alt=""> </figure></div>
         <div><h3>Bell pepper</h3>
         <p> Sold By: <span>Fresho</span></p>
@@ -111,58 +111,45 @@
           <p>Save for later</p>
           <span>Remove</span>
         </div>
-      </article>
+      </article> -->
       <div class="product__divider"></div>
-      <article class="product_buy_detail">
-        <div><figure class="productFigure"><img src="https://themes.pixelstrap.com/fastkart/assets/images/vegetable/product/3.png" alt=""> </figure></div>
-        <div><h3>Bell pepper</h3>
-        <p> Sold By: <span>Fresho</span></p>
-        <p> Quantity: <span>500 g</span></p>
-        </div>
-        <div><h3>Price</h3>
-          <p> $35.10 </p>
-        </div>
-        <div><h3>Qty</h3>
-          <div class="qty_Modifier">
-            <button class="operation">+</button>
-            <p>0</p>
-           <button class="operation">-</button>
-          </div>
-        </div>
-        <div><h3>Total</h3>
-          <p>$35.10</p>
-        </div>
-        <div><h3>Action</h3>
-          <p>Save for later</p>
-          <span>Remove</span>
-        </div>
-      </article>
-      <div class="product__divider"></div>
-      <article class="product_buy_detail">
-        <div><figure class="productFigure"><img src="https://themes.pixelstrap.com/fastkart/assets/images/vegetable/product/3.png" alt=""> </figure></div>
-        <div><h3>Bell pepper</h3>
-        <p> Sold By: <span>Fresho</span></p>
-        <p> Quantity: <span>500 g</span></p>
-        </div>
-        <div><h3>Price</h3>
-          <p> $35.10 </p>
-        </div>
-        <div><h3>Qty</h3>
-          <div class="qty_Modifier">
-            <button class="operation">+</button>
-            <p>0</p>
-           <button class="operation">-</button>
-          </div>
-        </div>
-        <div><h3>Total</h3>
-          <p>$35.10</p>
-        </div>
-        <div><h3>Action</h3>
-          <p>Save for later</p>
-          <span>Remove</span>
-        </div>
-      </article>
     </section>
+    <section id="cartTotal">
+      <h3>Cart Total</h3>
+      <label for="coupon">Coupon Apply</label>
+      <div class="couponContainer"><input type="text" id="coupon" placeholder="Enter Coupon Code Here...">
+      <button type="submit" class="checkoutCoupon">Apply</button>
+      </div>
+      <div class="billing">
+        <p>Subtotal</p>
+        <p class="subtotal"></p>
+      </div>
+      <div class="billing">
+        <p>Coupon Discount</p>
+        <p>(-)0.00</p>
+      </div>
+      <div class="billing">
+        <p>Shipping</p>
+        <p>$6000</p>
+      </div>
+      <div class="totalCart billing">
+        <p>Total(PCOL)</p>
+        <p class="total"></p>
+      </div>
+      <button id="BillCheck">Process To Checkout</button>
+      <button class="returnShop"><a href="/index.html"> Return To Shopping</a></button>
+    </section>
+    <section class="formShip">
+      <form >
+        <input class="formShipInput" type="text" placeholder="Nombre" id="nameBuyer">
+        <input  class="formShipInput"  type="text" placeholder="Direccion" id="addressBuyer">
+        <input  class="formShipInput"  type="number" placeholder="Telefono" id="phoneBuyer">
+        <button class="buyButton" id="cancelBuy">Cancel</button>
+        <button type="submit" class="buyButton" id="buyNow">Buy Now</button>
+      </form>
+    </section>
+
+
   </main>
 
   <footer>

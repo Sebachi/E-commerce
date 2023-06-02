@@ -399,8 +399,8 @@ main{
 }
 
 .operation{
-    border-radius: 50%;
-    background-color: var(--color-gray-50);
+
+    background-color: white;
     width: 16px;
     text-align: center;
 }
@@ -418,8 +418,13 @@ main{
 }
 .product_buy_detail img{
     width: calc(120px + (162 - 120) * ((80vw - 320px) / (1920 - 320)));
-    background-color: var(--background-footer);
+    background-color: white;
 }
+.remove{
+    cursor: pointer;
+}
+
+
 
 
 @media (max-width: 1515px) {

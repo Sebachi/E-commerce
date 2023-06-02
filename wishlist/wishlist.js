@@ -60,5 +60,45 @@ document.addEventListener("DOMContentLoaded", async () => {
       getWishlist()
       location.reload()
     });
+    //Botones carrito
+    const btnPlus = document.getElementById(`plus${localProduct}`);
+    const btnMinus = document.getElementById(`minus${localProduct}`);
+    const counter = document.getElementById(`counter${localProduct}`);
+    const currentCart = JSON.parse(localStorage.getItem(`usercart${localProduct}`));
+    if(!currentCart) {
+     counter.innerText = 0
+    }
+    else{
+     counter.innerText = currentCart
+   }
+
+    btnPlus.addEventListener("click", () => {
+      let currentValue = Number(counter.innerText);
+      counter.innerText = currentValue + 1;
+      let newCart = [
+
+          Number(counter.innerText),
+
+      ]
+      localStorage.setItem(`usercart${localProduct}`, JSON.stringify(newCart))
+
+    });
+    btnMinus.addEventListener("click", () => {
+      let currentValue = Number(counter.innerText);
+      if (currentValue > 0) {
+        counter.innerText = currentValue - 1;
+      } else {
+        counter.innerText = 0;
+      }
+      let newCart = [
+
+         Number(counter.innerText),
+
+      ]
+      localStorage.setItem(`usercart${localProduct}`, JSON.stringify(newCart))
+    });
+
+
+
   });
 });

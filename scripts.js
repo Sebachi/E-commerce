@@ -152,8 +152,19 @@ const descuento = () => {
 `;
 };
 
-let user = JSON.parse(localStorage.getItem("user"));
+
+// let userCart = JSON.parse(localStorage.getItem("userCart"));
+// if (userCart == null) {
+//   userCart = []
+//   localStorage.setItem('userCart', JSON.stringify(userCart))
+// }
+
 let userWishlist = JSON.parse(localStorage.getItem("userWishlist"));
+if (userWishlist == null) {
+  userWishlist = []
+  localStorage.setItem('userWishlist', JSON.stringify(userWishlist))
+}
+
 const idWishIcon = document.addEventListener("DOMContentLoaded", async () => {
   await getProducts();
   descuento();
@@ -164,14 +175,32 @@ const idWishIcon = document.addEventListener("DOMContentLoaded", async () => {
     const btnMinus = document.getElementById(`minus${localProduct}`);
     const counter = document.getElementById(`counter${localProduct}`);
     const favIcon = document.getElementById(`wishIcon${localProduct}`);
-    const heartActivated = JSON.parse(localStorage.getItem("userWishlist"));
-    heartActivated.forEach((heart) => {
+
+    let heartActivated = JSON.parse(localStorage.getItem("userWishlist"));
+      heartActivated.forEach((heart) => {
       if (heart == localProduct) {
-        favIcon.classList.add("activated");
-    }})
+      favIcon.classList.add("activated");
+     } })
+
+
+    const currentCart = JSON.parse(localStorage.getItem(`usercart${localProduct}`));
+    if(!currentCart) {
+     counter.innerText = 0
+    }
+    else{
+     counter.innerText = currentCart
+   }
+
     btnPlus.addEventListener("click", () => {
       let currentValue = Number(counter.innerText);
       counter.innerText = currentValue + 1;
+      let newCart = [
+
+          Number(counter.innerText),
+
+      ]
+      localStorage.setItem(`usercart${localProduct}`, JSON.stringify(newCart))
+
     });
     btnMinus.addEventListener("click", () => {
       let currentValue = Number(counter.innerText);
@@ -180,6 +209,12 @@ const idWishIcon = document.addEventListener("DOMContentLoaded", async () => {
       } else {
         counter.innerText = 0;
       }
+      let newCart = [
+
+         Number(counter.innerText),
+
+      ]
+      localStorage.setItem(`usercart${localProduct}`, JSON.stringify(newCart))
     });
     favIcon.addEventListener("click", () => {
       if (!favIcon.classList.contains("activated")) {
@@ -197,10 +232,6 @@ const idWishIcon = document.addEventListener("DOMContentLoaded", async () => {
   });
 });
 
-const adminbutton = document.getElementsByClassName('adminbutton')
 
-adminbutton.addEventListener('click', () => {
-  window.location.href = "/admin/admin.html"
-})
 
 window.saveCardElements = () => {};
