@@ -6,9 +6,9 @@ let isOpen = false;
 hamburguesa.addEventListener("click", (e) => {
   menuMobile.classList.toggle("inactive");
   if (isOpen) {
-    burgerIco.src = "resources/icon-hamburger.svg";
+    burgerIco.src = "/resources/icon-hamburger.svg";
   } else {
-    burgerIco.src = "resources/icon-close.svg";
+    burgerIco.src = "/resources/icon-close.svg";
   }
   isOpen = !isOpen;
 });
