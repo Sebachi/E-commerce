@@ -575,39 +575,58 @@ main{
         height: 60px;
     }
      /* First footer  */
-     .firstFooter{
-        display: grid;
-        grid-template-columns: none;
-        grid-template-rows: 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr;
-        gap: 0;
-        width: 100%;
-        justify-content: center;
-        text-align: center;
-        position: relative;
-    }
-    .FtArt1{
-        line-height: 30px;
-    }
-    .FtArt1 figure{
-        justify-self: center;
-        position:relative;
-        left: 7vh;
-    }
-    .FtArt5{
-        justify-self: center;
-    }
-    .contactUs{
-        position:relative;
-        left: 7vh;
-    }
-    .stores{
-        flex-wrap: wrap;
-    }
-    /* secondFooter */
-    .secondFooter{
-        flex-direction: column;
-        align-items: center;
-    }
+  .firstFooter {
+    display: grid;
+    grid-template-columns: none;
+    grid-template-rows: 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr;
+    gap: 0;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+  }
+  .FtArt1 {
+    line-height: 30px;
+
+    display: flex;
+    flex-direction: column;
+  }
+  .FtArt1 figure {
+    justify-self: center;
+    position: relative;
+    align-self: center;
+  }
+  .FtArt5 {
+    justify-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .contactUs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .contactus2{
+    min-width: 200px;
+    display: flex;
+    justify-content: center;
+  }
+  #downloadapp{
+    display: flex;
+    width: auto;
+    justify-content: center;
+  }
+  .stores {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  /* secondFooter */
+  .secondFooter {
+    flex-direction: column;
+    align-items: center;
+  }
      /* Main */
      .topCartlist{
         padding: 1px 10px;

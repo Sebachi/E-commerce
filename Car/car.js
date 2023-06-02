@@ -7,12 +7,12 @@ let isOpen = false;
 hamburguesa.addEventListener('click', (e) => {
     menuMobile.classList.toggle('inactive');
     if (isOpen) {
-        burgerIco.src = '/resources/icon-hamburger.svg';
+      burgerIco.src = "https://sebachi.github.io/FinalModulo1/resources/icon-hamburger.svg";
     } else {
-        burgerIco.src = '/resources/icon-close.svg';
+      burgerIco.src = "https://sebachi.github.io/FinalModulo1/resources/icon-close.svg";
     }
     isOpen = !isOpen;
-});
+  });
 // Codigo
 const CartContainer = document.getElementById('CartContainer')
 const URL_LOCAL = "https://ecommercefinalmodulo1back.onrender.com/stockFItems";

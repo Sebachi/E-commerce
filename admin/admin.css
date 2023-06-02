@@ -606,12 +606,12 @@ main {
     flex-direction: column;
     align-items: center;
   }
-  .contactus2 {
+  .contactus2{
     min-width: 200px;
     display: flex;
     justify-content: center;
   }
-  #downloadapp {
+  #downloadapp{
     display: flex;
     width: auto;
     justify-content: center;
