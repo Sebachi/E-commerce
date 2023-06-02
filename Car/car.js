@@ -48,7 +48,7 @@ const getCart = async () => {
               <p id="total${element.id}">${element.itemPrice * newArray}</p>
             </div>
             <div><h3>Action</h3>
-              <p>Save for later</p>
+              <p class="saveForLater">Save for later</p>
               <span class="remove" id="remove${element.id}">Remove</span>
             </div>
           </article>

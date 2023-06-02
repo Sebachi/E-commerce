@@ -399,7 +399,12 @@ main{
     padding: 0;
     display: grid;
 }
-
+#CartContainer{
+    border: 1px var(--color-gray-50) solid;
+    margin: 10px;
+    gap: 10px;
+    border-radius: 10px;
+}
 .operation{
 
     background-color: white;
@@ -434,6 +439,7 @@ main{
     border-radius: 5px;
     gap: 15px;
     background-color: var(--background-footer);
+    border: 1px var(--color-gray-50) solid;
     color: gray;
     font-size: calc(14px + (14 - 13) * ((100vw - 320px) / (1920 - 320)));
 }
@@ -512,6 +518,7 @@ main{
     flex-wrap: wrap;
     justify-content: flex-end;
     margin: 10px;
+    border: 1px var(--color-gray-50) solid;
 }
 .formShipInput{
     width: 100%;
@@ -540,8 +547,15 @@ main{
     background-color: #ff7675;
     color: #fff;
 }
-
-
+.remove{
+    color: #ff7675;
+    text-decoration: underline red;
+    cursor: pointer;
+}
+.saveForLater{
+    color: var(--theme-color);;
+    text-decoration: underline var(--theme-color1);
+}
 @media (max-width: 1515px) {
 
     /* header */
@@ -599,6 +613,15 @@ main{
         padding: 1px 10px;
     }
 }
+@media (max-width: 800px) {
+.product_buy_detail h3, .product_buy_detail p{
+display: none;
+}
+
+}
+
+
+
 .hidden{
     display: none;
 }
