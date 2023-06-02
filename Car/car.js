@@ -16,6 +16,9 @@ hamburguesa.addEventListener('click', (e) => {
 // Codigo
 const CartContainer = document.getElementById('CartContainer')
 const URL_LOCAL = "https://ecommercefinalmodulo1back.onrender.com/stockFItems";
+// const cartTotal = document.getElementById('cartTotal')
+const subtotal = document.getElementById('subtotal')
+const total = document.getElementById('total')
 const getCart = async () => {
     try {
       const response = await fetch(URL_LOCAL);
@@ -41,7 +44,7 @@ const getCart = async () => {
               </div>
             </div>
             <div><h3>Total</h3>
-              <p id="total${element.id}">$ ${element.itemPrice * newArray}</p>
+              <p id="total${element.id}">${element.itemPrice * newArray}</p>
             </div>
             <div><h3>Action</h3>
               <p>Save for later</p>
@@ -50,6 +53,7 @@ const getCart = async () => {
           </article>
           <div class="product__divider"></div>
               `;
+
         ;
     }
     else {
@@ -68,6 +72,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     await getCart();
 
     const productContainer = document.querySelectorAll(".productContainer");
+    let counterTotal =  0
     productContainer.forEach((element) => {
       const localProduct = element.getAttribute("id");
       const btnPlus = document.getElementById(`plus${localProduct}`);
@@ -96,20 +101,57 @@ document.addEventListener("DOMContentLoaded", async () => {
           counter.innerText = currentValue - 1;
         }
         let newCart = [
-
            Number(counter.innerText),
-
         ]
         localStorage.setItem(`usercart${localProduct}`, JSON.stringify(newCart))
-        // let currentTotal = Number(precio.innerText) * Number(counter.innerText)
-        // total.innerText  = currentTotal
         location.reload()
       });
       remove.addEventListener('click', () => {
         localStorage.removeItem(`usercart${localProduct}`)
-        
+
         location.reload()
       })
+      const checkout = document.getElementById('checkout')
+      const cartTotal = document.getElementById('cartTotal')
+      const formBuyer = document.getElementById('formBuyer')
+      const cancelBuy = document.getElementById('cancelBuy')
+      const buyNow = document.getElementById('buyNow')
+      const URL_BUYED = "https://ecommercefinalmodulo1back.onrender.com/BuyedItems"
+      const subtotal = document.getElementById('subtotal')
+      const total = document.getElementById('total')
+      checkout.addEventListener('click', () => {
+        formBuyer.classList.remove('hidden')
+        CartContainer.classList.add('hidden')
+        cartTotal.classList.add('hidden')
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+      })
+      cancelBuy.addEventListener('click', () => {
+        CartContainer.classList.remove('hidden')
+        cartTotal.classList.remove('hidden')
+        formBuyer.classList.add('hidden')
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+      })
 
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+     const currentTotal = document.getElementById(`total${localProduct}`)
+     const totalCurrentNumber =  Number(currentTotal.innerText)
+     
+     counterTotal += totalCurrentNumber
+     console.log(counterTotal);
     });
+    const applyBtn = document.getElementById('applyBtn')
+    applyBtn.addEventListener('click', () => {
+        alert('COUPON NO FOUND')
+      })
+      subtotal.innerText = counterTotal
+      total.innerText = `$ ${counterTotal + 6000}`
   });

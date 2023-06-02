@@ -114,15 +114,15 @@
       </article> -->
       <div class="product__divider"></div>
     </section>
-    <section id="cartTotal">
+    <section id="cartTotal" class="cartTotal">
       <h3>Cart Total</h3>
       <label for="coupon">Coupon Apply</label>
       <div class="couponContainer"><input type="text" id="coupon" placeholder="Enter Coupon Code Here...">
-      <button type="submit" class="checkoutCoupon">Apply</button>
+      <button type="submit" class="checkoutCoupon" id="applyBtn">Apply</button>
       </div>
       <div class="billing">
         <p>Subtotal</p>
-        <p class="subtotal"></p>
+        <p class="subtotal" id="subtotal">123</p>
       </div>
       <div class="billing">
         <p>Coupon Discount</p>
@@ -134,12 +134,12 @@
       </div>
       <div class="totalCart billing">
         <p>Total (PCOL)</p>
-        <p class="total">323</p>
+        <p class="total" id="total">323</p>
       </div>
-      <button class="BillCheck"> Process To Checkout</button>
+      <button class="BillCheck" id="checkout"> Process To Checkout</button>
       <button class="returnShop"><a href="/index.html"> Return To Shopping</a></button>
     </section>
-    <section class="formShip">
+    <section class="formShip hidden" id="formBuyer">
       <form >
         <input class="formShipInput" type="text" placeholder="Nombre" id="nameBuyer">
         <input  class="formShipInput"  type="text" placeholder="Direccion" id="addressBuyer">
