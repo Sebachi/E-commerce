@@ -81,19 +81,21 @@ document.addEventListener("DOMContentLoaded", async () => {
     const btnEdit = document.getElementById(`edit${localProduct}`);
     const btnDelete = document.getElementById(`delete${localProduct}`);
 
-
- 
-
-
-
     btnEdit.addEventListener("click", () => {
       console.log('he recibido el edit');
       handleEdit(localProduct)
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
     });
     btnDelete.addEventListener("click", () => {
       handleDelete(localProduct)
       console.log('he recibido el delete');
-     
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
     });
 
   });
@@ -107,6 +109,7 @@ const handleSubmit = async (event) => {
       alert('hay campos obligatorios por llenar')
       return
   }
+
   const newProduct = {
       itemName: inputName.value,
       itemPrice: Number(inputPrice.value),
@@ -153,7 +156,7 @@ const handleSubmit = async (event) => {
           return error;
       }
   }
-  
+
   const saveProduct = async (product) => {
       try {
           const response = await fetch(URL_API, {
@@ -169,7 +172,7 @@ const handleSubmit = async (event) => {
           return error
       }
   }
-  
+
 
 
     const handleEdit = async (localProduct) => {

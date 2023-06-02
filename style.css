@@ -442,6 +442,41 @@ main {
 #banner6 {
   background-image: url(https://themes.pixelstrap.com/fastkart/assets/images/vegetable/banner/6.jpg);
 }
+/*Banners content */
+
+.banner-box{
+
+  display: flex;
+  flex-direction: column;
+  padding: 10%;
+  height: 100%;
+  width: 100%;
+  align-content: flex-start;
+  font-size: calc(14px + (14 - 13) * ((100vw - 320px) / (1920 - 320)));
+}
+#banner1 .banner-box h6{
+color: var(--color-gray-100);
+font-weight: bold;
+}
+#banner1 .banner-box h6 span{
+  color: #000;
+  background-color: #ff6b81;
+  border-radius: 5px;
+  padding: 1%;
+  }
+.text-top{
+  text-transform: uppercase;
+  font-weight: bold;
+  width: 50%;
+}
+.text-top span{
+  font-weight: bolder;
+  color: #0da487;
+}
+.text-down{
+  width: 45%;
+  color: var(--color-gray-100);
+}
 
 /* midPage */
 .midPage {
@@ -657,10 +692,12 @@ main {
   /* main */
   /* Banners */
   #asideBanners {
-    display: grid;
-    grid-template-rows: 1fr 1fr;
+    display: flex;
+    flex-direction: column;
     width: auto;
     gap: 10px;
+    height: 100%;
+    padding-bottom: 100px;
   }
   .asideBanner {
     width: auto;
@@ -673,7 +710,7 @@ main {
   .banners {
     display: grid;
     grid-template-rows: 1fr 1fr;
-    height: auto;
+    height: 100%;
     gap: 10px;
   }
   .banner {
@@ -688,6 +725,10 @@ main {
     gap: 10px;
     margin-bottom: 0;
   }
+  #asideBanners{
+    grid-template-rows: 1fr 1fr;
+  }
+  
   .secondBanners {
     display: grid;
     grid-template-rows: 1fr 1fr 1fr;
@@ -732,13 +773,33 @@ main {
  .productType{
     display: none;
  }
+ #asideBanners{
+  display: none;
+}
+.firstBanners {
+  display: block;
+  grid-template-columns: none;
+  grid-template-rows: none;
+  width: 100%;
+  height: auto;
+  gap: 10px;
+  margin-bottom: 0;
+}
+.banners {
+  display: grid;
+  grid-template-rows: 1fr 3fr;
+  height: 100%;
+  gap: 10px;
+}
+.banner-box{
+  display: none;
+}
   .hidden {
     display: none;
   }
 }
 
 @media (max-width: 800px) {
-  
     .productName, .productPrice {
         font-size: 12px;
       }
@@ -761,6 +822,18 @@ main {
       .headerProductslist .productContainer{
         width: 100%;
         min-width: 250px;
+      }
+      .banner-box{
+        font-size: calc(8px + (14 - 13) * ((100vw - 320px) / (1920 - 320)));
+        display: none;
+      }
+      .text-top{
+        text-transform: uppercase;
+        font-weight: bold;
+        width: 90%;
+      }
+      .text-down{
+        width: 80%;
       }
 }
 /*siempre al final */

@@ -16,7 +16,7 @@ hamburguesa.addEventListener('click', (e) => {
 // Codigo
 const CartContainer = document.getElementById('CartContainer')
 const URL_LOCAL = "https://ecommercefinalmodulo1back.onrender.com/stockFItems";
-const URL_BUYED = "http://localhost:4000/BuyedItems";
+const URL_BUYED = "https://ecommercefinalmodulo1back.onrender.com/BuyedItems";
 // const cartTotal = document.getElementById('cartTotal')
 const subtotal = document.getElementById('subtotal')
 const total = document.getElementById('total')
@@ -160,18 +160,18 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       form.addEventListener('submit', (e) => {
         e.preventDefault();
-        console.log(nameBuyerValue);
-        console.log(document.getElementById("addressBuyer").value);
         productsBuyed =
         {
             id : localProduct,
-            itemAmount : itemAmount,
+            itemAmount : itemAmount[1],
             nameBuyer:  document.getElementById("nameBuyer").value,
             addressBuyer: document.getElementById("addressBuyer").value,
             phoneBuyerValue: document.getElementById("phoneBuyer").value
         }
         saveProduct(productsBuyed)
         alert('Producto comprado exitosamente')
+        localStorage.removeItem(`usercart${localProduct}`)
+        location.reload()
       })
 
 
